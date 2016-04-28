@@ -1,22 +1,70 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="" ng-app="todoApp">
 	<head>
 	 	<!-- Required meta tags always come first -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Title Page</title>
+		<title>Todo List</title>
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
 		<link rel="stylesheet" href="style.css">
 	</head>
-	<body>
-		<h1 class="text-xs-center">Hello World</h1>
-
+	<body ng-controller="todoCtrl">
+		<h1 class="text-xs-center">Todo App</h1>
+		<div id="container">
+			<div class="pad-box">
+				<div id="input-box">
+					<div id="label-add">
+						Add Todo Item
+					</div>
+					<div id="input-add">
+						<div id="text-input-box" class="input-box">
+							<div>
+								<label for="task-input">Task:</label>
+							</div>
+							<div>
+								<input ng-model="name" id="task-input" type="text">
+							</div>
+						</div>
+						<div id="priority-input-box" class="input-box">
+							<div>
+								<label for="priority-input">Priority:</label>
+							</div>
+							<div>
+								<select ng-model="priority" ng-init="priority='high-priority'" id="priority-input">
+									<option value="high-priority" selected="selected">High Priority</option>
+									<option value="medium-priority">Medium Priority</option>
+									<option value="low-priority">Low Priority</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div id="button-add">
+						<button ng-click="addTask()">
+							Add Todo
+						</button>
+					</div>
+				</div>
+			</div>
+			<div id="output-box">
+				<div id="priority-buttons">
+					<button class="btn btn-default" ng-click="order('priority',true)">Order by highest priority</button>
+					<button class="btn btn-default" ng-click="order('priority',false)">Order by lowest priority</button>
+					<button class="btn btn-default" ng-click="order('name', false)">Order alphabetically</button>
+				</div>
+				<div id="task-list">
+					<div ng-repeat="task in tasks" class="task {{task.priority}}">{{task.name}}</div>
+				</div>
+			</div>
+		</div>
+		
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<!-- Bootstrap JavaScript -->
 		<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>		
+
 		<script src="index.js"></script>
 	</body>
 </html>

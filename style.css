@@ -1,0 +1,192 @@
+.input-box {
+	padding: 20px;
+	padding-top: 10px;
+}
+
+#button-add {
+	padding: 15px;
+	background-color: blue;
+	display: flex;
+	justify-content: center;
+	font-weight: normal;
+}
+
+#input-box {
+	background-color: #E3D2D2;
+	padding: 0px;
+	display:inline-block;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+#priority-input{
+	font-weight: normal;
+}
+
+#output-box {
+	display:inline-flex;
+	justify-content: center;
+	padding-right:0px;
+	align-items: flex-start;
+	flex-direction: column;
+	height:100%;
+	width:100%;
+}
+
+#label-add{
+	display:flex;
+	justify-content: center;
+	padding: 15px;
+	background-color: blue;	
+	color:white;
+}
+
+.btn {
+	font-size: 13px;
+}
+
+.row{
+	padding:20px;
+}
+
+#container {
+	padding:20px;
+	display:flex;
+	flex-direction: row;
+}
+
+.pad-box {
+	padding-right:15px;
+	display:inline-block;
+}
+
+@media (max-width: 440px){
+	.pad-box {
+		padding-bottom:30px;
+		padding-right:0px;
+	}	
+
+	#container{
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	#input-box{
+		flex-direction: column;
+	}
+}
+
+.medium-priority {
+	background-color: #C8C8C8;
+}
+
+.high-priority {
+	background-color: #AFAFAF;
+}
+
+.low-priority {
+	background-color: #E1E1E1;
+}
+
+#task-list{
+	display:flex;
+	flex-direction: column;
+	width:100%;
+	padding-top: 10px;
+}
+
+#task-input{
+	font-weight: normal;
+	display:flex;
+}
+
+.task {
+	display:stretch;
+	padding:5px;
+	flex-grow:1;
+}
+
+.btn-default{
+	flex-grow: 1;
+	background-color: blue;
+	padding: 5px;
+}
+
+.btn-default:hover {
+	background-color: #0000A6
+}
+
+#priority-buttons {
+	width:100%;
+	display:flex;
+	flex-grow: 1;
+	flex-direction: row;
+	flex-basis: auto;
+	align-items: stretch;
+	flex-wrap: wrap;
+	color: white;
+}
+
+/**
+ * For the correct positioning of the placeholder element, the dnd-list and
+ * it's children must have position: relative
+ */
+.simpleDemo ul[dnd-list],
+.simpleDemo ul[dnd-list] > li {
+	position: relative;
+}
+
+/**
+ * The dnd-list should always have a min-height,
+ * otherwise you can't drop to it once it's empty
+ */
+.simpleDemo ul[dnd-list] {
+    min-height: 42px;
+    padding-left: 0px;
+}
+
+/**
+ * The dndDraggingSource class will be applied to
+ * the source element of a drag operation. It makes
+ * sense to hide it to give the user the feeling
+ * that he's actually moving it.
+ */
+.simpleDemo ul[dnd-list] .dndDraggingSource {
+    display: none;
+}
+
+/**
+ * An element with .dndPlaceholder class will be
+ * added to the dnd-list while the user is dragging
+ * over it.
+ */
+.simpleDemo ul[dnd-list] .dndPlaceholder {
+    display: block;
+    background-color: #ddd;
+    min-height: 42px;
+}
+
+/**
+ * The dnd-lists's child elements currently MUST have
+ * position: relative. Otherwise we can not determine
+ * whether the mouse pointer is in the upper or lower
+ * half of the element we are dragging over. In other
+ * browsers we can use event.offsetY for this.
+ */
+.simpleDemo ul[dnd-list] li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+}
+
+/**
+ * Show selected elements in green
+ */
+.simpleDemo ul[dnd-list] li.selected {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
