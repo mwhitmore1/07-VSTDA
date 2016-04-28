@@ -53,8 +53,10 @@
 					<button class="btn btn-default" ng-click="order('priority',false)">Order by lowest priority</button>
 					<button class="btn btn-default" ng-click="order('name', false)">Order alphabetically</button>
 				</div>
-				<div id="task-list">
-					<div ng-repeat="task in tasks" class="task {{task.priority}}">{{task.name}}</div>
+				<div id="task-list" data-as-sortable="board.dragControlListeners" data-ng-model="tasks">
+					<div ng-repeat="task in tasks"  data-as-sortable-item class="task {{task.priority}}">
+						<div data-as-sortable-item-handle>{{ task.name }}</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -63,7 +65,11 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<!-- Bootstrap JavaScript -->
 		<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+		
+		<!-- ng-sortable mod -->
+		<script type="text/javascript" src="dist/ng-sortable.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="dist/ng-sortable.min.css">
 
 		<script src="index.js"></script>
 	</body>
