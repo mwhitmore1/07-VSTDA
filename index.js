@@ -2,7 +2,7 @@ var todoApp = angular.module('todoApp', ['as.sortable']);
 
 todoApp.controller('todoCtrl', function($scope, $filter){
 
-	var orderBy = $filter('orderBy');
+	//var orderBy = $filter('orderBy');
 
 	$scope.tasks = [
 		{name: "high-priority", priority: 3},
