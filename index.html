@@ -15,46 +15,49 @@
 		<div id="container">
 			<div class="pad-box">
 				<div id="input-box">
-					<div id="label-add">
-						Add Todo Item
-					</div>
-					<div id="input-add">
-						<div id="text-input-box" class="input-box">
-							<div>
-								<label for="task-input">Task:</label>
-							</div>
-							<div>
-								<input ng-model="name" id="task-input" type="text">
-							</div>
+					<form>
+						<div id="label-add">
+							Add Todo Item
 						</div>
-						<div id="priority-input-box" class="input-box">
-							<div>
-								<label for="priority-input">Priority:</label>
+							<div id="input-add">
+							
+								<div id="text-input-box" class="input-box">
+									<div>
+										<label for="task-input">Task:</label>
+									</div>
+									<div>
+										<input ng-model="name" id="task-input" type="text">
+									</div>
+								</div>
+								<div id="priority-input-box" class="input-box">
+									<div>
+										<label for="priority-input">Priority:</label>
+									</div>
+									<div>
+										<select ng-model="priority" ng-init="priority='1'" id="priority-input">
+											<option value="3" selected="selected">High Priority</option>
+											<option value="2">Medium Priority</option>
+											<option value="1">Low Priority</option>
+										</select>
+									</div>
+								</div>	
 							</div>
-							<div>
-								<select ng-model="priority" ng-init="priority='high-priority'" id="priority-input">
-									<option value="high-priority" selected="selected">High Priority</option>
-									<option value="medium-priority">Medium Priority</option>
-									<option value="low-priority">Low Priority</option>
-								</select>
-							</div>
+						<div id="button-add">
+							<button ng-click="addTask()">
+								Add Todo
+							</button>
 						</div>
-					</div>
-					<div id="button-add">
-						<button ng-click="addTask()">
-							Add Todo
-						</button>
-					</div>
+					</form>
 				</div>
 			</div>
 			<div id="output-box">
 				<div id="priority-buttons">
-					<button class="btn btn-default" ng-click="order('priority',true)">Order by highest priority</button>
-					<button class="btn btn-default" ng-click="order('priority',false)">Order by lowest priority</button>
-					<button class="btn btn-default" ng-click="order('name', false)">Order alphabetically</button>
+					<button class="btn btn-default" ng-click="order = '-priority'">Order by highest priority</button>
+					<button class="btn btn-default" ng-click="order = 'priority'">Order by lowest priority</button>
+					<button class="btn btn-default" ng-click="order = 'name'">Order alphabetically</button>
 				</div>
 				<div id="task-list" data-as-sortable="board.dragControlListeners" data-ng-model="tasks">
-					<div ng-repeat="task in tasks"  data-as-sortable-item class="task {{task.priority}}">
+					<div ng-repeat="task in tasks | orderBy:order"  data-as-sortable-item class="task priority{{task.priority}}">
 						<div data-as-sortable-item-handle>{{ task.name }}</div>
 					</div>
 				</div>
