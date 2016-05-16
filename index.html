@@ -6,9 +6,17 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Todo List</title>
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
-		<link rel="stylesheet" href="style.css">
+		
+		<!-- bower:css -->
+	    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+		<link rel="stylesheet" href="bower_components/ng-sortable/dist/ng-sortable.css" />
+		<!-- endbower -->
+
+		<!-- inject:css -->
+		<link rel="stylesheet" href="/app/css/style.css">
+		<!-- endinject -->
+
 	</head>
 	<body ng-controller="todoCtrl">
 		<h1 class="text-xs-center">Todo App</h1>
@@ -64,16 +72,16 @@
 			</div>
 		</div>
 		
-		<!-- jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<!-- Bootstrap JavaScript -->
-		<script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-		
-		<!-- ng-sortable mod -->
-		<script type="text/javascript" src="dist/ng-sortable.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="dist/ng-sortable.min.css">
+		<!-- bower:js -->
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/toastr/toastr.js"></script>
+		<script src="bower_components/ng-sortable/dist/ng-sortable.js"></script>
+		<!-- endbower -->
 
-		<script src="index.js"></script>
+		<!-- inject:js -->
+		<script src="/app/index.js"></script>
+		<!-- endinject -->
 	</body>
 </html>
